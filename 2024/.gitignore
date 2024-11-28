@@ -1,3 +1,7 @@
 .idea
 build
 
+# advent of code session cookie
+.session
+# cached input files
+input
