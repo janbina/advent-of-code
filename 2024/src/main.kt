@@ -7,7 +7,7 @@ fun main() {
 }
 
 fun solveDay(day: Int, year: Int) {
-    val inputReader = getDayInputFile(day, 2023)
+    val inputReader = getDayInputFile(day, year)
         .onFailure { println("Cannot get input for day $day, year $year: $it") }
         .getOrNull()?.bufferedReader() ?: return
     val solver = getSolver(day, inputReader)
