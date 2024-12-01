@@ -1,19 +1,25 @@
 package solution
 
-import Day
 import java.io.BufferedReader
+import kotlin.math.abs
 
 class Day01(
-    private val input: BufferedReader,
-) : Day<Any, Any> {
+    input: BufferedReader,
+) : Day<Int, Int> {
 
-    val lines = input.lineSequence()
+    private val lists = input.lineSequence()
+        .map { it.split("   ") }
+        .map { it[0].toInt() to it[1].toInt() }
+        .unzip()
+    private val l = lists.first.sorted()
+    private val r = lists.second.sorted()
 
-    override fun solvePart1(): Any {
-        return 1
+    override fun part1(): Int {
+        return l.indices.sumOf { abs(l[it] - r[it]) }
     }
 
-    override fun solvePart2(): Any {
-        return 2
+    override fun part2(): Int {
+        val rCounts = r.groupingBy { it }.eachCount()
+        return l.sumOf { it * (rCounts.getOrDefault(it, 0)) }
     }
 }
