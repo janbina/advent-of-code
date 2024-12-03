@@ -1,10 +1,9 @@
-import solution.Day
-import solution.Day01
+import solution.*
 import java.io.BufferedReader
 import kotlin.system.measureTimeMillis
 
 fun main() {
-    val day = 1
+    val day = 3
     println("solving day $day")
     measureTimeMillis {
         val res = solveDay(day = day, year = 2024)
@@ -27,6 +26,8 @@ fun solveDay(day: Int, year: Int): Pair<Any, Any>? {
 private fun getSolver(day: Int, input: BufferedReader): Day<out Any, out Any> {
     return when (day) {
         1 -> Day01(input)
+        2 -> Day02(input)
+        3 -> Day03(input)
         else -> error("Day $day not yet implemented")
     }
 }
