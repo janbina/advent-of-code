@@ -6,12 +6,13 @@ fun main() {
         2 to (359 to 418),
         3 to (174960292 to 56275602),
         4 to (2336 to 1831),
+        5 to (4814 to 5448),
     )
 
     println("Running tests")
 
     val time = measureTimeMillis {
-        for (day in 1..4) {
+        for (day in 1..5) {
             val result = solveDay(day, 2024)
             val expected = expectedResults[day]
 

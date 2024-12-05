@@ -21,8 +21,13 @@ class Day04(
     private fun getChar(p: Point2D) = grid.getOrNull(p.y)?.getOrNull(p.x) ?: '-'
 
     private fun getString(start: Point2D, direction: Move, length: Int): String {
-        return (0..(length - 2)).runningFold(initial = start) { p, _ -> p.applyMove(direction) }
-            .map { getChar(it) }.joinToString(separator = "")
+        return buildString {
+            var p = start
+            repeat(length) {
+                append(getChar(p))
+                p = p.applyMove(direction)
+            }
+        }
     }
 
     override fun part1(): Int {

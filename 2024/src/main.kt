@@ -3,7 +3,7 @@ import java.io.BufferedReader
 import kotlin.system.measureTimeMillis
 
 fun main() {
-    val day = 4
+    val day = 5
     println("solving day $day")
     measureTimeMillis {
         val res = solveDay(day = day, year = 2024)
@@ -29,6 +29,7 @@ private fun getSolver(day: Int, input: BufferedReader): Day<out Any, out Any> {
         2 -> Day02(input)
         3 -> Day03(input)
         4 -> Day04(input)
+        5 -> Day05(input)
         else -> error("Day $day not yet implemented")
     }
 }
