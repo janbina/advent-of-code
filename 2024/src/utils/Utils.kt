@@ -267,3 +267,14 @@ fun <T> Collection<T>.split(condition: (T) -> Boolean): List<List<T>> {
 fun intRangeOf(a: Int, b: Int): IntRange {
     return if (a < b) a..b else b..a
 }
+
+fun <T> List<List<T>>.indices(): Sequence<Point2D> = sequence {
+    for (y in indices) {
+        for (x in get(y).indices) {
+            yield(Point2D(x, y))
+        }
+    }
+}
+
+operator fun <T> List<List<T>>.get(point: Point2D): T = get(point.y).get(point.x)
+fun <T> List<List<T>>.getOrNull(point: Point2D): T? = getOrNull(point.y)?.getOrNull(point.x)

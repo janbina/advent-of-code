@@ -51,6 +51,14 @@ data class Point2D(val x: Int, val y: Int) {
         return Point2D(x = x + other.x, y = y + other.y)
     }
 
+    operator fun minus(other: Point2D): Point2D {
+        return Point2D(x = x - other.x, y = y - other.y)
+    }
+
+    operator fun times(k: Int): Point2D {
+        return Point2D(x = k * x, y = k * y)
+    }
+
     companion object {
         val ORIGIN = Point2D(0, 0)
         val readerOrder: Comparator<Point2D> = Comparator { o1, o2 ->
@@ -65,6 +73,8 @@ data class Point2D(val x: Int, val y: Int) {
 data class Move(val dx: Int, val dy: Int) {
 
     fun inverted() = Move(dx * -1, dy * -1)
+
+    fun turnRight() = Move(dy * -1, dx)
 
     operator fun times(multiplier: Int): Move {
         return Move(dx = dx * multiplier, dy = dy * multiplier)
