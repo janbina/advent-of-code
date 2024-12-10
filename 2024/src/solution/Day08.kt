@@ -11,6 +11,7 @@ class Day08(
     private val antennas: Map<Char, List<Point2D>> = lines.indices()
         .filter { lines[it] != '.' }
         .groupBy { lines[it] }
+
     private fun Point2D.inMap(): Boolean = x in lines[0].indices && y in lines.indices
 
     override fun part1(): Any {
