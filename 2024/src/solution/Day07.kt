@@ -26,8 +26,8 @@ class Day07(
         if (i > nums.lastIndex) return acc == test
         if (acc > test) return false
         return canBeTrue(acc + nums[i], i + 1, canConcat)
-            || canBeTrue(acc * nums[i], i + 1, canConcat)
-            || (canConcat && canBeTrue(acc * multiplier(nums[i]) + nums[i], i + 1, canConcat))
+                || canBeTrue(acc * nums[i], i + 1, canConcat)
+                || (canConcat && canBeTrue(acc * multiplier(nums[i]) + nums[i], i + 1, canConcat))
     }
 
     override fun part1(): Long {

@@ -278,3 +278,14 @@ fun <T> List<List<T>>.indices(): Sequence<Point2D> = sequence {
 
 operator fun <T> List<List<T>>.get(point: Point2D): T = get(point.y).get(point.x)
 fun <T> List<List<T>>.getOrNull(point: Point2D): T? = getOrNull(point.y)?.getOrNull(point.x)
+
+inline fun Long.digitCount(): Int {
+    if (this == 0L) return 1
+    var n = this.absoluteValue
+    var digitCount = 0
+    while (n > 0) {
+        n /= 10
+        digitCount++
+    }
+    return digitCount
+}
