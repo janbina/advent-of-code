@@ -1,5 +1,6 @@
-package solution
+package aoc24
 
+import Day
 import utils.Move
 import utils.Point2D
 import java.io.BufferedReader

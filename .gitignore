@@ -1,5 +1,6 @@
 .idea
 build
+out
 
 # advent of code session cookie
 .session

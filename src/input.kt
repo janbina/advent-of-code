@@ -10,7 +10,7 @@ fun getDayInputFile(
     forceDownload: Boolean = false,
 ): Result<File> {
     File("input").mkdirs()
-    val file = File("input/day${day.toString().padStart(2, '0')}.txt")
+    val file = File("input/$year-${day.toString().padStart(2, '0')}.txt")
 
     if (file.exists() && !forceDownload) {
         return Result.success(file)

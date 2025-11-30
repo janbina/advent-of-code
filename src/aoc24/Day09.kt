@@ -1,5 +1,6 @@
-package solution
+package aoc24
 
+import Day
 import java.io.BufferedReader
 
 class Day09(

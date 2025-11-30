@@ -1,9 +1,8 @@
-package solution
+package aoc24
 
+import Day
 import utils.*
 import java.io.BufferedReader
-import java.math.BigInteger
-import java.util.*
 import kotlin.collections.HashMap
 
 class Day11(

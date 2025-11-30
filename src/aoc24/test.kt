@@ -1,3 +1,6 @@
+package aoc24
+
+import solveDay
 import kotlin.system.measureTimeMillis
 
 fun main() {

@@ -1,5 +1,6 @@
-package solution
+package aoc24
 
+import Day
 import utils.split
 import java.io.BufferedReader
 
