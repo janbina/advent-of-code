@@ -5,7 +5,7 @@ import kotlin.system.measureTimeMillis
 
 fun main() {
     val expectedResults = mapOf(
-        1 to (1 to 2),
+        1 to (1097 to 7101),
     )
 
     println("Running tests")
