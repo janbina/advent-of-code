@@ -6,12 +6,13 @@ import kotlin.system.measureTimeMillis
 fun main() {
     val expectedResults = mapOf(
         1 to (1097 to 7101),
+        2 to (28846518423 to 31578210022),
     )
 
     println("Running tests")
 
     val time = measureTimeMillis {
-        for (day in 1..1) {
+        for (day in 1..expectedResults.size) {
             val result = solveDay(day, 2025)
             val expected = expectedResults[day]
 
