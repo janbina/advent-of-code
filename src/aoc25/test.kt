@@ -7,6 +7,7 @@ fun main() {
     val expectedResults = mapOf(
         1 to (1097 to 7101),
         2 to (28846518423 to 31578210022),
+        3 to (17155L to 169685670469164),
     )
 
     println("Running tests")
