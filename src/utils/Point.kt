@@ -4,7 +4,17 @@ import java.lang.Math.toDegrees
 import kotlin.math.abs
 import kotlin.math.atan2
 
-data class Point2D(val x: Int, val y: Int) {
+fun Point2D(x: Int, y: Int): Point2D {
+    return Point2D(packInts(x, y))
+}
+
+@JvmInline
+value class Point2D(
+    val packedValue: Long,
+) {
+
+    val x: Int get() = unpackInt1(packedValue)
+    val y: Int get() = unpackInt2(packedValue)
 
     fun up() = applyMove(Move.up)
     fun down() = applyMove(Move.down)
@@ -59,6 +69,17 @@ data class Point2D(val x: Int, val y: Int) {
         return Point2D(x = k * x, y = k * y)
     }
 
+    fun copy(
+        x: Int = this.x,
+        y: Int = this.y,
+    ): Point2D {
+        return Point2D(x = x, y = y)
+    }
+
+    override fun toString(): String {
+        return "Point2D(x=$x, y=$y)"
+    }
+
     companion object {
         val ORIGIN = Point2D(0, 0)
         val readerOrder: Comparator<Point2D> = Comparator { o1, o2 ->
@@ -70,7 +91,16 @@ data class Point2D(val x: Int, val y: Int) {
     }
 }
 
-data class Move(val dx: Int, val dy: Int) {
+fun Move(dx: Int, dy: Int): Move {
+    return Move(packInts(dx, dy))
+}
+
+@JvmInline
+value class Move(
+    val packedValue: Long,
+) {
+    val dx: Int get() = unpackInt1(packedValue)
+    val dy: Int get() = unpackInt2(packedValue)
 
     fun inverted() = Move(dx * -1, dy * -1)
 
@@ -78,6 +108,10 @@ data class Move(val dx: Int, val dy: Int) {
 
     operator fun times(multiplier: Int): Move {
         return Move(dx = dx * multiplier, dy = dy * multiplier)
+    }
+
+    override fun toString(): String {
+        return "Move(dx=$dx, dy=$dy)"
     }
 
     companion object {
@@ -102,4 +136,16 @@ data class Move(val dx: Int, val dy: Int) {
             downRight,
         )
     }
+}
+
+private inline fun packInts(val1: Int, val2: Int): Long {
+    return (val1.toLong() shl 32) or (val2.toLong() and 0xFFFFFFFF)
+}
+
+private inline fun unpackInt1(value: Long): Int {
+    return (value shr 32).toInt()
+}
+
+private inline fun unpackInt2(value: Long): Int {
+    return (value and 0xFFFFFFFF).toInt()
 }
