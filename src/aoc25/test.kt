@@ -8,6 +8,7 @@ fun main() {
         1 to (1097 to 7101),
         2 to (28846518423 to 31578210022),
         3 to (17155L to 169685670469164),
+        4 to (1474 to 8910),
     )
 
     println("Running tests")

@@ -278,6 +278,7 @@ fun <T> List<List<T>>.indices(): Sequence<Point2D> = sequence {
 
 operator fun <T> List<List<T>>.get(point: Point2D): T = get(point.y).get(point.x)
 fun <T> List<List<T>>.getOrNull(point: Point2D): T? = getOrNull(point.y)?.getOrNull(point.x)
+operator fun <T> MutableList<MutableList<T>>.set(point: Point2D, element: T) = get(point.y).set(point.x, element)
 
 inline fun Long.digitCount(): Int {
     if (this == 0L) return 1
