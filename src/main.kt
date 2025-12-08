@@ -2,7 +2,7 @@ import kotlin.system.measureTimeMillis
 
 fun main() {
     val year = 2025
-    val day = 7
+    val day = 8
     println("solving day $day")
     measureTimeMillis {
         val res = solveDay(day = day, year = year)
