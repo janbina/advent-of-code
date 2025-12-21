@@ -9,4 +9,6 @@ repositories {
     mavenCentral()
 }
 
-dependencies {}
+dependencies {
+    implementation("com.google.ortools:ortools-java:9.12.4544")
+}
