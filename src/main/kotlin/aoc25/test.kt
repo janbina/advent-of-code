@@ -15,6 +15,7 @@ fun main() {
         8 to (42840L to 170629052L),
         9 to (4748826374L to 1554370486L),
         10 to (375L to 15377L),
+        11 to (708L to 545394698933400L),
     )
 
     println("Running tests")
