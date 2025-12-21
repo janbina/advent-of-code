@@ -1,11 +1,14 @@
 package aoc25
 
 import Day
+import solveDay
 import utils.Point3D
 import utils.productOf
 import utils.uniquePairs
 import java.io.BufferedReader
 import kotlin.collections.plusAssign
+
+fun main() { solveDay(8, 2025) }
 
 class Day08(
     input: BufferedReader,

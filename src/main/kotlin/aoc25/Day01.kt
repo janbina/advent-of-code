@@ -1,12 +1,15 @@
 package aoc25
 
 import Day
+import solveDay
 import java.io.BufferedReader
 import kotlin.math.abs
 
+fun main() { solveDay(1, 2025) }
+
 class Day01(
     input: BufferedReader,
-) : Day<Int, Int> {
+) : Day<Long, Long> {
 
     private val add = input.readLines().map {
         val num = it.drop(1).toInt()
@@ -17,9 +20,9 @@ class Day01(
         }
     }
 
-    override fun part1(): Int {
+    override fun part1(): Long {
         var num = 50
-        var sum = 0
+        var sum = 0L
 
         for (x in add) {
             num = (num + x) % 100
@@ -29,9 +32,9 @@ class Day01(
         return sum
     }
 
-    override fun part2(): Int {
+    override fun part2(): Long {
         var num = 50
-        var sum = 0
+        var sum = 0L
 
         for (x in add) {
             val prev = num

@@ -1,7 +1,10 @@
 package aoc25
 
 import Day
+import solveDay
 import java.io.BufferedReader
+
+fun main() { solveDay(3, 2025) }
 
 class Day03(
     input: BufferedReader,

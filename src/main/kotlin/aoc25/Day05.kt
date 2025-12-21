@@ -1,6 +1,7 @@
 package aoc25
 
 import Day
+import solveDay
 import utils.Point2D
 import utils.get
 import utils.getOrNull
@@ -8,9 +9,11 @@ import utils.indices
 import utils.set
 import java.io.BufferedReader
 
+fun main() { solveDay(5, 2025) }
+
 class Day05(
     input: BufferedReader,
-) : Day<Int, Long> {
+) : Day<Long, Long> {
 
     private val lines = input.readLines()
     private val ranges = lines
@@ -24,8 +27,8 @@ class Day05(
         .drop(1)
         .map { it.toLong() }
 
-    override fun part1(): Int {
-        return ingredients.count { ing -> ranges.any { range -> ing in range } }
+    override fun part1(): Long {
+        return ingredients.count { ing -> ranges.any { range -> ing in range } }.toLong()
     }
 
     override fun part2(): Long {

@@ -1,9 +1,12 @@
 package aoc25
 
 import Day
+import solveDay
 import utils.Point2D
 import utils.getOrNull
 import java.io.BufferedReader
+
+fun main() { solveDay(7, 2025) }
 
 class Day07(
     input: BufferedReader,

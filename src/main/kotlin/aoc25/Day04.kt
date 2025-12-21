@@ -1,6 +1,7 @@
 package aoc25
 
 import Day
+import solveDay
 import utils.Point2D
 import utils.get
 import utils.getOrNull
@@ -8,9 +9,11 @@ import utils.indices
 import utils.set
 import java.io.BufferedReader
 
+fun main() { solveDay(4, 2025) }
+
 class Day04(
     input: BufferedReader,
-) : Day<Int, Int> {
+) : Day<Long, Long> {
 
     private val originalGrid = input.readLines().map { it.toList() }
 
@@ -19,13 +22,13 @@ class Day04(
         return adjacent().count { grid.getOrNull(it) == '@' } < 4
     }
 
-    override fun part1(): Int {
-        return originalGrid.indices().count { it.isAccessible(originalGrid) }
+    override fun part1(): Long {
+        return originalGrid.indices().count { it.isAccessible(originalGrid) }.toLong()
     }
 
-    override fun part2(): Int {
+    override fun part2(): Long {
         val grid = originalGrid.mapTo(ArrayList()) { it.toMutableList() }
-        var sum = 0
+        var sum = 0L
 
         while (true) {
             val accessible = grid.indices().filter { it.isAccessible(grid) }
